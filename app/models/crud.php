@@ -11,17 +11,16 @@ class crud extends Database
     {
         $sql = "INSERT INTO `person`(`name`) VALUES ('$value1');";
         mysqli_query($this->conn,$sql);
-        var_dump($sql);
 
     }
     public function readperson(){
-        $pdo = $this->conn;
-        // $sql = new PDO("SELECT * FROM `person`;");
-        // // $result = $this->conn->prepare($sql);
-        $sql = $pdo->prepare('SELECT * FROM `person`;');
-        $sql->execute();
-        $sql->fetch;
-        // $sql->execute();
-        return $sql;
+        $conn = $this->conn;
+        $result = $conn->query("SELECT * FROM `person`");
+        $data = array();
+        while($row = mysqli_fetch_assoc($result)){
+            $data[] = $row;
+        }
+        return json_encode($data);
     }
+
 }

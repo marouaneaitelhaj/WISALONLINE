@@ -4,5 +4,5 @@
 </form>
 
 <?php
-var_dump($data['readperson']);
+echo $data['readperson'];
 ?>
