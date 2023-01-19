@@ -1,9 +1,9 @@
 <?php
-class home extends controller{
+class data extends controller{
     public function __construct()
     {
         $this->model('Database');
         $readperson = $this->model('crud');
-        $this->view('index', ['readperson' => $readperson->readperson()]);
+        $this->senddata('data', ['readperson' => $readperson->readperson()]);
     }
 }
