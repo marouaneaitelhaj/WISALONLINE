@@ -16,9 +16,10 @@ class crud extends Database
     }
     public function deleteperson($value1)
     {
-        $sql = "DELETE FROM `person`  WHERE `name`='$value1[0]');";
+        $sql = "DELETE FROM `person` WHERE `id`=$value1[0];";
         mysqli_query($this->conn, $sql);
         // print_r($value1[0]);
+        var_dump($sql);
     }
     public function readperson()
     {
