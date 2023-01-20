@@ -31,4 +31,16 @@ class crud extends Database
         }
         return $data;
     }
+    public function search($value1)
+    {
+        $conn = $this->conn;
+        $result = $conn->query("SELECT * FROM `person` WHERE `name` LIKE $value1[0]");
+        $data = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            $data[] = $row;
+        }
+        return $data;
+        return $value1;
+        // var_dump($value1);
+    }
 }
