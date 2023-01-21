@@ -11,6 +11,6 @@ class search extends controller
         $data = json_decode(file_get_contents("php://input"));
         $this->model('Database');
         $person = $this->model('crud');
-        $person->search($data);
+        $this->senddata('search', ['readperson' => $person->search($data)]);
     }
 }

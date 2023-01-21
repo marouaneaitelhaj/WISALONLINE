@@ -7,6 +7,10 @@
   </div>
   <input type="text" v-model="textsearch" name="person" class="m-5 border w-20 " />
   <button v-on:click="search()"  class="border">search</button>
+  <div v-for="se in searsh" v-bind:key="searsh.id">
+    {{ se }}
+    <button v-on:click="dlt(person.id)" class="border">dlt</button>
+  </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.3/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -19,6 +23,7 @@
     data() {
       return {
         person: [],
+        searsh: [],
         texttt: '',
         notif: '',
         textsearch: ''
@@ -34,6 +39,15 @@
           .catch(error => {
             console.log(error);
           });
+      },
+      textsearch: function() {
+        const data = [
+          this.textsearch
+        ]
+        axios.post('./search',data)
+        .then(response => {
+          this.searsh = response.data;
+        });
       }
     },
 
@@ -60,9 +74,8 @@
         ]
         axios.post('./search',data)
         .then(response => {
-    console.log(response);
-  });
-        axios.get('./search')
+          this.searsh = response.data;
+        });
       }
     },
 
