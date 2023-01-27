@@ -24,7 +24,12 @@ class crud extends Database
     public function readperson()
     {
         $conn = $this->conn;
-        $result = $conn->query("SELECT * FROM `person`");
+        $id = $_GET['id'];
+        if(isset($_GET['id'])){
+            $result = $conn->query("SELECT * FROM `person` where `id`=$id");
+        }else{
+            $result = $conn->query("SELECT * FROM `person`");
+        }
         $data = array();
         while ($row = mysqli_fetch_assoc($result)) {
             $data[] = $row;
