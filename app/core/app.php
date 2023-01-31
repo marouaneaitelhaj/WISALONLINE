@@ -21,9 +21,9 @@ class app
                         call_user_func([$this->controller, $this->method], $this->params, $this->params);
                         unset($arr);
                     }
-                } 
+                }
             }
-        } else{
+        } else {
             unset($arr[0]);
             $this->controller = 'home';
             require_once('../app/controllers/home.php');
@@ -33,8 +33,6 @@ class app
     public function parseUrl()
     {
         if (isset($_GET['url'])) {
-            //return $url = explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
-            // echo $_GET['url'];
             return $url = explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
         }
     }
