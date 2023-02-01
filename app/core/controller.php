@@ -17,5 +17,6 @@ class controller
         }
         ob_get_clean();
         ob_start();
+
     }
 }

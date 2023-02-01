@@ -6,6 +6,6 @@ class signup extends controller{
         $this->model('Database');
         $crud = $this->model('user');
         $crud->signup($data[0],$data[1]);
-        // echo "lksqjdlkqsjd";
+        var_dump($data);
     }
 }

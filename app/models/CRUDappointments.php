@@ -6,11 +6,11 @@ use function PHPSTORM_META\sql_injection_subst;
 
 class CRUDappointments extends Database
 {
-    public function Cappointments($value1, $value2, $value3)
+    public function Cappointments($value1, $value2, $value3, $value4)
     {
         $conn = $this->conn;
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $conn->prepare("INSERT INTO `appointments`(`client_id`,`date`, `heure`, `statut`) VALUES ('$value1','$value2','$value3')");
+        $stmt = $conn->prepare("INSERT INTO `appointments`(`client_id`,`date`, `heure`, `statut`,`btn`) VALUES ('$value1','$value2','$value3','waiting', '$value4')");
         $stmt->execute();
     }
     public function Rappointments()
