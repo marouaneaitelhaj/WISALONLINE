@@ -3,7 +3,6 @@
     header('Access-Control-Allow-Headers: Content-Type');
 class  api extends controller{
     public function Cavailability(){
-        echo "kjsdhqjksd";
         $data = json_decode(file_get_contents("php://input"));
         $this->model('Database');
         $crud = $this->model('CRUDavailability');

@@ -1,12 +1,9 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header('Access-Control-Allow-Headers: Content-Type');
 class check extends controller{
     public function __construct(){
-        if (!isset($_COOKIE["user"])) {
-            echo "rak kharj";
-        }else{
-            echo "rak dakhl";
-            echo "<br>";
-            echo $_COOKIE["user"];
-        }
+        $this->model('Database');
+        var_dump($_SESSION);
     }
 }

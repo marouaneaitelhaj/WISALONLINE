@@ -10,11 +10,9 @@ class user extends Database
         $result = $stmt->fetchAll();
         for ($i = 0; $i < count($result); $i++) {
             if ($value1 == $result[$i]["reference"]) {
-                $cookie_name = "user";
-                $cookie_value = $value1;
-                setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+                die("1");
             } else {
-                // echo "la";
+                echo 0;
             }
         }
     }
@@ -26,9 +24,8 @@ class user extends Database
         $stmt = $conn->prepare("INSERT INTO `clients`(`nom`, `numéro_tel`, `reference`) VALUES ('$value1','$value2', '$uniqid')");
         $stmt->execute();
     }
-    public function logout(){
-        unset($_COOKIE["user"]);
-        setcookie("user", "", time() - 3600, "/");
-        echo "done";
+    public function logout()
+    {
+        session_destroy();
     }
 }
