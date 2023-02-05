@@ -6,7 +6,7 @@ class  api extends controller{
         $data = json_decode(file_get_contents("php://input"));
         $this->model('Database');
         $crud = $this->model('CRUDavailability');
-        $crud->Cavailability($data[0],$data[1],$data[2],$data[3]);
+        $crud->Cavailability($data[0],$data[1],$data[2]);
     }
     public function Ravailability(){
         $this->model('Database');
@@ -29,7 +29,7 @@ class  api extends controller{
         $data = json_decode(file_get_contents("php://input"));
         $this->model('Database');
         $crud = $this->model('CRUDappointments');
-        $crud->Cappointments($data[0],$data[1],$data[2],$data[3]);
+        $crud->Cappointments($data[0],$data[1],$data[2]);
     }
     public function Rappointments(){
         $this->model('Database');

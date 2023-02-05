@@ -16,6 +16,15 @@ class user extends Database
             }
         }
     }
+    public function FromKeyToId($value1)
+    {
+        $conn = $this->conn;
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $stmt = $conn->prepare("SELECT `id` FROM clients WHERE `reference`='$value1'");
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        echo json_encode($result);
+    }
     public function signup($value1, $value2)
     {
         $conn = $this->conn;
