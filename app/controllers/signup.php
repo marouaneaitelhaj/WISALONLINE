@@ -1,5 +1,6 @@
 <?php
-    header("Access-Control-Allow-Origin: *");
+   header("Access-Control-Allow-Origin: *");
+header('Access-Control-Allow-Headers: Content-Type');
 class signup extends controller{
     public function __construct(){
         $data = json_decode(file_get_contents("php://input"));

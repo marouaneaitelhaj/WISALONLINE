@@ -10,14 +10,14 @@ class CRUDappointments extends Database
     {
         $conn = $this->conn;
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $conn->prepare("INSERT INTO `appointments`(`client_id`,`date`, `heure`, `statut`,`btn`) VALUES ('$value1','$value2','$value3','waiting', '$value4')");
+        $stmt = $conn->prepare("INSERT INTO `appointments`(`client_id`,`jour`, `heure`, `statut`) VALUES (6,'$value1','$value2','waiting')");
         $stmt->execute();
     }
     public function Rappointments()
     {
         $conn = $this->conn;
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $conn->prepare("SELECT * FROM appointments");
+        $stmt = $conn->prepare("SELECT heure , jour  FROM appointments");
         $stmt->execute();
         $result = $stmt->fetchAll();
         echo json_encode($result);
@@ -26,7 +26,7 @@ class CRUDappointments extends Database
     {
         $conn = $this->conn;
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $conn->prepare("UPDATE `appointments` SET `client_id`='$value1',`date`='$value2',`heure`='$value3',`statut`='$value4'");
+        $stmt = $conn->prepare("UPDATE `appointments` SET `client_id`='$value1',`jour`='$value2',`heure`='$value3',`statut`='$value4'");
         $stmt->execute();
     }
     public function Dappointments($value1)
