@@ -13,6 +13,12 @@ class  api extends controller{
         $crud = $this->model('CRUDavailability');
         $crud->Ravailability();
     }
+    public function RRappointments(){
+        $data = json_decode(file_get_contents("php://input"));
+        $this->model('Database');
+        $crud = $this->model('CRUDappointments');
+        $crud->RRappointments($data[0]);
+    }
     public function Uavailability(){
         $data = json_decode(file_get_contents("php://input"));
         $this->model('Database');
@@ -29,7 +35,7 @@ class  api extends controller{
         $data = json_decode(file_get_contents("php://input"));
         $this->model('Database');
         $crud = $this->model('CRUDappointments');
-        $crud->Cappointments($data[0],$data[1],$data[2]);
+        $crud->Cappointments($data[0],$data[1],$data[2],$data[3]);
     }
     public function Rappointments(){
         $this->model('Database');
