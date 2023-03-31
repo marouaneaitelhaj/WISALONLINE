@@ -17,7 +17,7 @@ class CRUDappointments extends Database
     {
         $conn = $this->conn;
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $conn->prepare("SELECT heure , jour, date  FROM appointments");
+        $stmt = $conn->prepare("SELECT *  FROM appointments join clients on appointments.client_id=clients.id");
         $stmt->execute();
         $result = $stmt->fetchAll();
         echo json_encode($result);
